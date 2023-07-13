@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: nextjs-playground-postgres
+    volumes:
+      - db-store:/var/lib/postgresql/data
+    ports:
+      - '5442:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+
+volumes:
+  db-store:
