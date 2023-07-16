@@ -3,5 +3,6 @@
 ## Getting Started
 
 ```bash
-pnpm dev
+$ pnpm install
+$ pnpm dev
 ```
