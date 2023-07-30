@@ -1,5 +1,46 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useEffect, useState } from 'react';
+
+import { ReadonlyURLSearchParams, useParams, usePathname, useRouter } from 'next/navigation';
 
 export const Callback: FC = () => {
-  return <p>callback</p>;
+  const pathname = usePathname();
+  const params = useParams();
+  const [searchParams, setSearchParams] = useState<URLSearchParams>();
+  const [parsedParams, setParsedParams] = useState<{ key: string; value: string }[]>([]);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    console.log(hash);
+    const parsedHash = new URLSearchParams(hash.replace('#', ''));
+    setSearchParams(parsedHash);
+    console.log(parsedHash.get('id_token'));
+  }, [pathname]);
+
+  useEffect(() => {
+    if (searchParams === undefined) {
+      return;
+    }
+
+    for (const entry of searchParams.entries()) {
+      console.log(entry);
+      setParsedParams((prev) => {
+        const newValue = prev.concat();
+        newValue.push({ key: entry[0], value: entry[1] });
+        return newValue;
+      });
+    }
+  }, [searchParams]);
+
+  return (
+    <div className='p-12'>
+      <h1>callback</h1>
+      <ul className='flex flex-col gap-4 w-full'>
+        {parsedParams.map((param) => (
+          <li className='break-all' key={params.key}>{`${param.key}: ${param.value}`}</li>
+        ))}
+      </ul>
+    </div>
+  );
 };

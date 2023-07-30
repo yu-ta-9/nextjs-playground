@@ -18,7 +18,7 @@ export const Google: FC = () => {
 
     // Parameters to pass to OAuth 2.0 endpoint.
     var params = {
-      client_id: process.env.GOOGLE_OAUTH_CLIENT_ID,
+      client_id: process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID,
       redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/google/callback`,
       response_type: 'id_token',
       scope: 'profile email',

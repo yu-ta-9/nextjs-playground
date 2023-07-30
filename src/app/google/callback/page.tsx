@@ -16,17 +16,6 @@ type Props = {
  * @returns
  */
 const GoogleCallbackPage = async (params: Props) => {
-  console.log('params', params);
-  const res = await fetch('http://localhost:3000/login/google', {
-    method: 'POST',
-    body: JSON.stringify({
-      idToken: params.access_token,
-    }),
-  });
-
-  const resJson = await res.json();
-  console.log('data', resJson);
-
   return <Callback />;
 };
 

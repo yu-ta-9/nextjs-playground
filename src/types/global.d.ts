@@ -5,6 +5,6 @@ declare namespace NodeJS {
     /** DB URL */
     readonly DATABASE_URL: string;
     /** Google OAuth Client Id */
-    readonly GOOGLE_OAUTH_CLIENT_ID: string;
+    readonly NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID: string;
   }
 }
