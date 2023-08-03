@@ -1,5 +1,5 @@
 import { Google } from '@/components/pages/Google';
-import { Callback } from '@/components/pages/Google/Callcack';
+import { Callback } from '@/components/pages/Google/Callback';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

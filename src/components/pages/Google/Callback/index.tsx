@@ -6,7 +6,6 @@ import { ReadonlyURLSearchParams, useParams, usePathname, useRouter } from 'next
 
 export const Callback: FC = () => {
   const pathname = usePathname();
-  const params = useParams();
   const [searchParams, setSearchParams] = useState<URLSearchParams>();
   const [parsedParams, setParsedParams] = useState<{ key: string; value: string }[]>([]);
 
@@ -36,9 +35,9 @@ export const Callback: FC = () => {
   return (
     <div className='p-12'>
       <h1>callback</h1>
-      <ul className='flex flex-col gap-4 w-full'>
+      <ul className='flex flex-col w-full gap-4'>
         {parsedParams.map((param) => (
-          <li className='break-all' key={params.key}>{`${param.key}: ${param.value}`}</li>
+          <li className='break-all' key={param.key}>{`${param.key}: ${param.value}`}</li>
         ))}
       </ul>
     </div>

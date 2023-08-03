@@ -1,10 +1,9 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <div className='z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex'>
+    <main className='flex flex-col items-center justify-between min-h-screen p-24'>
+      <div className='z-10 items-center justify-between w-full max-w-5xl font-mono text-sm lg:flex'>
         <ul className='flex flex-col gap-4'>
           <li>
             <Link className='text-blue' href='/todo/1'>
@@ -14,6 +13,11 @@ export default function Home() {
           <li>
             <Link className='text-blue' href='/google'>
               googleログイン
+            </Link>
+          </li>
+          <li>
+            <Link className='text-blue' href='/line'>
+              lineログイン
             </Link>
           </li>
         </ul>
