@@ -13,24 +13,29 @@ jobs:
         node: [18.x]
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
       - name: setup nodeJs ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
 
-      - name: checkout
-        uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 8
+          run_install: false
 
       - name: cache node_modules
         id: node_modules_cache_id
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          key: ${{ matrix.os }}-node-v${{ matrix.node }}-deps-${{ hashFiles(format('{0}{1}', github.workspace, '/pnpm-lock.yaml')) }}
 
       - name: pnpm install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: lint test
         run: pnpm lint:js
