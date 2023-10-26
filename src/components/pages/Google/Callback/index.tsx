@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import type { FC} from 'react';
+import type { FC } from 'react';
 
 export const Callback: FC = () => {
   const pathname = usePathname();
@@ -23,7 +23,8 @@ export const Callback: FC = () => {
       return;
     }
 
-    for (const entry of searchParams.entries()) {
+    const entries = Array.from(searchParams.entries());
+    for (const entry of entries) {
       console.log(entry);
       setParsedParams((prev) => {
         const newValue = prev.concat();

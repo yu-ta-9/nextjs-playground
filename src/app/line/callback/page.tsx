@@ -6,11 +6,16 @@ export const metadata: Metadata = {
   title: 'Line callback',
 };
 
+type Params = {
+  // TODO: 適切なものに変える
+  searchParams: any;
+};
+
 /**
  * @param params
  * @returns
  */
-const LineCallbackPage = async ({ searchParams }) => {
+const LineCallbackPage = async ({ searchParams }: Params) => {
   const code = searchParams.code;
   const clientId = process.env.NEXT_PUBLIC_LINE_CLIENT_ID;
   const secretKey = process.env.NEXT_PUBLIC_LINE_SECRET_KEY;

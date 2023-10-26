@@ -32,7 +32,7 @@ export const Google: FC = () => {
       const input = document.createElement('input');
       input.setAttribute('type', 'hidden');
       input.setAttribute('name', p);
-      input.setAttribute('value', params[p]);
+      input.setAttribute('value', params[p as keyof typeof params]);
       form.appendChild(input);
     }
 
