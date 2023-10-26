@@ -1,4 +1,6 @@
-import { getApps, getApp, FirebaseOptions, FirebaseApp, initializeApp } from 'firebase/app';
+import { getApps, getApp, initializeApp } from 'firebase/app';
+
+import type { FirebaseOptions, FirebaseApp} from 'firebase/app';
 
 /**
  * @see {@link https://firebase.google.com/docs/web/learn-more#config-object}<br>

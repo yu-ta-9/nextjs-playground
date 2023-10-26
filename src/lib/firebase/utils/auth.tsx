@@ -1,10 +1,12 @@
 'use client';
 
-import { createContext, useEffect, useState, useContext } from 'react';
+import { getAuth, getRedirectResult } from 'firebase/auth';
+import { createContext, useEffect, useState } from 'react';
 
 import { getFirebaseApp } from '@/lib/firebase/utils/init';
-import { AuthContextState, ReactNodeProps } from '@/lib/firebase/type';
-import { User, getAuth, getRedirectResult } from 'firebase/auth';
+
+import type { AuthContextState, ReactNodeProps } from '@/lib/firebase/type';
+import type { User } from 'firebase/auth';
 
 const FirebaseAuthContext = createContext<AuthContextState>({
   currentUser: undefined,
@@ -35,11 +37,11 @@ const FirebaseAuthProvider = ({ children }: ReactNodeProps) => {
       // onAuthStateChangedはfirebase.Unsubscribeを返すので、ComponentがUnmountされるタイミングでUnsubscribe(登録解除)しておく
       unsubscribed();
     };
-  }, [auth]);
+  }, [auth, firebaseApp]);
 
   return <FirebaseAuthContext.Provider value={{ currentUser: currentUser }}>{children}</FirebaseAuthContext.Provider>;
 };
 
 export { FirebaseAuthContext, FirebaseAuthProvider };
 
-export const userFirebaseAuthContext = () => useContext(FirebaseAuthContext);
+// export const userFirebaseAuthContext = () => useContext(FirebaseAuthContext);

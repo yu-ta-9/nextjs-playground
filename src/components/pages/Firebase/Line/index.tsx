@@ -1,14 +1,16 @@
 'use client';
 
-import { OAuthProvider, signInWithRedirect, getAuth, signInWithCredential } from 'firebase/auth';
-import { FC, useEffect, useState } from 'react';
+import { OAuthProvider, getAuth, signInWithCredential } from 'firebase/auth';
+import { useEffect, useState } from 'react';
+
+import type { FC } from 'react';
 
 export const nonceGen = (length: number) => {
   let result = '';
 
-  let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-  let charactersLength = characters.length;
+  const charactersLength = characters.length;
 
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -20,6 +22,8 @@ export const Line: FC = () => {
   const [nonce, setNonce] = useState('');
   const [digestNonce, setDigestNonce] = useState('');
 
+  console.log({ nonce, digestNonce });
+
   useEffect(() => {
     (async () => {
       const crypto = require('crypto');
@@ -30,15 +34,15 @@ export const Line: FC = () => {
     })();
   }, []);
 
-  const handleLogin = async () => {
-    const clientId = process.env.NEXT_PUBLIC_LINE_CLIENT_ID;
-    const redirectUri = 'http://localhost:3033/line/callback';
+  // const handleLogin = async () => {
+  //   const clientId = process.env.NEXT_PUBLIC_LINE_CLIENT_ID;
+  //   const redirectUri = 'http://localhost:3033/line/callback';
 
-    const crypto = require('crypto');
-    const state = crypto.randomBytes(16).toString('hex');
+  //   const crypto = require('crypto');
+  //   const state = crypto.randomBytes(16).toString('hex');
 
-    window.location.href = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}&scope=profile%20openid%20email&nonce=${digestNonce}`;
-  };
+  //   window.location.href = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&state=${state}&scope=profile%20openid%20email&nonce=${digestNonce}`;
+  // };
 
   const handleLoginClick = () => {
     const provider = new OAuthProvider('oidc.line');
@@ -60,7 +64,7 @@ export const Line: FC = () => {
         // const accessToken = credential.accessToken;
         // const idToken = credential.idToken;
       })
-      .catch((error) => {
+      .catch(() => {
         // Handle error.
       });
   };
