@@ -1,6 +1,6 @@
-import { Google } from '@/components/pages/Google';
 import { Callback } from '@/components/pages/Google/Callback';
-import { Metadata } from 'next';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Google callback',
@@ -16,6 +16,8 @@ type Props = {
  * @returns
  */
 const GoogleCallbackPage = async (params: Props) => {
+  console.log(params);
+
   return <Callback />;
 };
 

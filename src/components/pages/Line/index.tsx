@@ -1,13 +1,15 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import type { FC } from 'react';
 
 export const nonceGen = (length: number) => {
   let result = '';
 
-  let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
-  let charactersLength = characters.length;
+  const charactersLength = characters.length;
 
   for (let i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));

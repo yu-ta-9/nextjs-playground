@@ -1,7 +1,10 @@
+
+import { cache } from 'react';
+
 import { Todo } from '@/components/pages/Todo';
 import { prisma } from '@/lib/prisma';
-import { Metadata } from 'next';
-import { cache } from 'react';
+
+import type { Metadata } from 'next';
 
 type Props = {
   params: {

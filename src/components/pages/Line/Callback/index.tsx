@@ -1,8 +1,9 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
-
 import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+import type { FC } from 'react';
 
 export const Callback: FC = () => {
   const searchParams = useSearchParams();
@@ -13,7 +14,9 @@ export const Callback: FC = () => {
       return;
     }
 
-    for (const entry of searchParams.entries()) {
+    const paramsArray = Array.from(searchParams.entries());
+
+    for (const entry of paramsArray) {
       console.log(entry);
       setParsedParams((prev) => {
         const newValue = prev.concat();
