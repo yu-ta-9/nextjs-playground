@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 
 export const Line: FC = () => {
   const handleLogin = async () => {

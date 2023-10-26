@@ -1,8 +1,9 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
-
 import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+
+import type { FC} from 'react';
 
 export const Callback: FC = () => {
   const searchParams = useSearchParams();

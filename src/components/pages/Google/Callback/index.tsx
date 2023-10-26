@@ -1,8 +1,9 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import { ReadonlyURLSearchParams, useParams, usePathname, useRouter } from 'next/navigation';
+import type { FC} from 'react';
 
 export const Callback: FC = () => {
   const pathname = usePathname();

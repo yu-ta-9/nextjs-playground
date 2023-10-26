@@ -1,5 +1,6 @@
 import { Line } from '@/components/pages/Line';
-import { Metadata } from 'next';
+
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Line',

@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import type { FC } from 'react';
 
 export const Google: FC = () => {
   const handleLogin = async () => {
@@ -9,15 +9,15 @@ export const Google: FC = () => {
 
   function oauthSignIn() {
     // Google's OAuth 2.0 endpoint for requesting an access token
-    var oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
+    const oauth2Endpoint = 'https://accounts.google.com/o/oauth2/v2/auth';
 
     // Create <form> element to submit parameters to OAuth 2.0 endpoint.
-    var form = document.createElement('form');
+    const form = document.createElement('form');
     form.setAttribute('method', 'GET'); // Send as a GET request.
     form.setAttribute('action', oauth2Endpoint);
 
     // Parameters to pass to OAuth 2.0 endpoint.
-    var params = {
+    const params = {
       client_id: process.env.NEXT_PUBLIC_GOOGLE_OAUTH_CLIENT_ID,
       redirect_uri: `${process.env.NEXT_PUBLIC_BASE_URL}/google/callback`,
       response_type: 'id_token',
@@ -28,8 +28,8 @@ export const Google: FC = () => {
     };
 
     // Add form parameters as hidden input values.
-    for (var p in params) {
-      var input = document.createElement('input');
+    for (const p in params) {
+      const input = document.createElement('input');
       input.setAttribute('type', 'hidden');
       input.setAttribute('name', p);
       input.setAttribute('value', params[p]);

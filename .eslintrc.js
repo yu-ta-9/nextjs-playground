@@ -1,8 +1,5 @@
 module.exports = {
-  env: {
-    browser: true,
-    node: true,
-  },
+  env: { browser: true, es2020: true, node: true, jest: true },
   root: true,
   extends: [
     'eslint:recommended',
@@ -10,13 +7,13 @@ module.exports = {
     'plugin:@next/next/recommended',
     'next/core-web-vitals',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'prettier',
-    'plugin:storybook/recommended',
+    // 'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'react', 'import', 'unused-imports'],
+  plugins: ['react-refresh', '@typescript-eslint', 'react', 'import', 'unused-imports'],
   rules: {
+    '@typescript-eslint/no-explicit-any': 'warn',
     '@next/next/no-img-element': 'off',
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
@@ -60,42 +57,7 @@ module.exports = {
         pathGroups: [
           {
             group: 'internal',
-            pattern: 'src/components/**',
-            position: 'before',
-          },
-          {
-            group: 'internal',
-            pattern: 'src/constants',
-            position: 'before',
-          },
-          {
-            group: 'internal',
-            pattern: 'src/hooks/**',
-            position: 'before',
-          },
-          {
-            group: 'internal',
-            pattern: 'src/lib/**',
-            position: 'before',
-          },
-          {
-            group: 'internal',
-            pattern: 'src/provider/**',
-            position: 'before',
-          },
-          {
-            group: 'internal',
-            pattern: 'src/stores/**',
-            position: 'before',
-          },
-          {
-            group: 'internal',
-            pattern: 'src/styles/**',
-            position: 'before',
-          },
-          {
-            group: 'internal',
-            pattern: 'src/utils/**',
+            pattern: '@src/**',
             position: 'before',
           },
         ],
@@ -104,7 +66,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.stories.tsx', 'src/pages/**/*'],
+      files: ['*.stories.tsx', 'src/app/**/*'],
       rules: {
         'import/no-default-export': 'off',
       },
@@ -121,7 +83,7 @@ module.exports = {
       },
     },
     react: {
-      version: 'detect', // React version. "detect" automatically picks the version you have installed.
+      version: 'detect',
     },
   },
 };
