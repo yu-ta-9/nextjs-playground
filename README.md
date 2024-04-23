@@ -4,5 +4,8 @@
 
 ```bash
 $ pnpm install
+$ docker compose up
+$ pnpm db:push
 $ pnpm dev
+
 ```
