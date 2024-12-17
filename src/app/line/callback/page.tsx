@@ -15,7 +15,8 @@ type Params = {
  * @param params
  * @returns
  */
-const LineCallbackPage = async ({ searchParams }: Params) => {
+const LineCallbackPage = async (props: Params) => {
+  const searchParams = await props.searchParams;
   const code = searchParams.code;
   const clientId = process.env.NEXT_PUBLIC_LINE_CLIENT_ID;
   const secretKey = process.env.NEXT_PUBLIC_LINE_SECRET_KEY;

@@ -1,4 +1,3 @@
-
 import { cache } from 'react';
 
 import { Todo } from '@/components/pages/Todo';
@@ -22,13 +21,14 @@ const getTodo = cache(async (id: number) => {
   return todo;
 });
 
-// TODO: Zennに書く！！
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const todo = await getTodo(Number(params.id));
   return { title: todo.name };
 }
 
-const TodoPage = async ({ params }: Props) => {
+const TodoPage = async (props: Props) => {
+  const params = await props.params;
   const todo = await getTodo(Number(params.id));
   return <Todo todo={todo} />;
 };
