@@ -16,11 +16,6 @@ export default function Home() {
 						</Link>
 					</li>
 					<li>
-						<Link className="text-blue" href="/line">
-							lineログイン
-						</Link>
-					</li>
-					<li>
 						<Link className="text-blue" href="/line/connect">
 							line連携
 						</Link>
