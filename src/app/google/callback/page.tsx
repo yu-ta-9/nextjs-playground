@@ -1,14 +1,14 @@
-import { Callback } from '@/components/pages/Google/Callback';
+import { Callback } from "@/components/pages/Google/Callback";
 
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Google callback',
+	title: "Google callback",
 };
 
 type Props = {
-  // TODO: 適切なものに変える
-  access_token: string;
+	// TODO: 適切なものに変える
+	access_token: string;
 };
 
 /**
@@ -16,9 +16,9 @@ type Props = {
  * @returns
  */
 const GoogleCallbackPage = async (params: Props) => {
-  console.log(params);
+	console.log(params);
 
-  return <Callback />;
+	return <Callback />;
 };
 
 export default GoogleCallbackPage;
