@@ -27,7 +27,7 @@ export const Line: FC = () => {
 
 	useEffect(() => {
 		(async () => {
-			const crypto = require("crypto");
+			const crypto = require("node:crypto");
 			const nonce = nonceGen(32);
 			const digestNonce = await crypto
 				.createHash("sha256")
@@ -77,7 +77,9 @@ export const Line: FC = () => {
 		<div className="p-12">
 			<h1>Firebase line</h1>
 
-			<button onClick={handleLoginClick}>Login</button>
+			<button type="button" onClick={handleLoginClick}>
+				Login
+			</button>
 		</div>
 	);
 };

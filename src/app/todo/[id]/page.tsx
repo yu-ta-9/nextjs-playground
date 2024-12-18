@@ -1,6 +1,5 @@
 import { cache } from "react";
 
-import { Todo } from "@/components/pages/Todo";
 import { prisma } from "@/lib/prisma";
 
 import type { Metadata } from "next";
@@ -30,7 +29,14 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 const TodoPage = async (props: Props) => {
 	const params = await props.params;
 	const todo = await getTodo(Number(params.id));
-	return <Todo todo={todo} />;
+
+	return (
+		<div className="p-12">
+			<h1>Todo</h1>
+
+			<p>{todo.name}</p>
+		</div>
+	);
 };
 
 export default TodoPage;

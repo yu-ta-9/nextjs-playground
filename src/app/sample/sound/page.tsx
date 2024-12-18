@@ -9,7 +9,7 @@ const SoundPage = async () => {
 		<div className="p-8">
 			<h1 className="font-bold">Sound</h1>
 
-			<div className="p-4"></div>
+			<div className="p-4">※TODO</div>
 		</div>
 	);
 };

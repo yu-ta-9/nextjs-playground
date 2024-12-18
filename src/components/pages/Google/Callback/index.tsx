@@ -18,7 +18,7 @@ export const Callback: FC = () => {
 		const parsedHash = new URLSearchParams(hash.replace("#", ""));
 		setSearchParams(parsedHash);
 		console.log(parsedHash.get("id_token"));
-	}, [pathname]);
+	}, []);
 
 	useEffect(() => {
 		if (searchParams === undefined) {
