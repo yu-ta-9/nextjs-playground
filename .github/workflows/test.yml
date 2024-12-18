@@ -38,10 +38,7 @@ jobs:
         run: pnpm install
 
       - name: lint test
-        run: pnpm lint:js
-
-      # - name: stylelint test
-      #   run: pnpm lint:css
+        run: pnpm lint
 
       - name: typescript test
         run: pnpm ts:test

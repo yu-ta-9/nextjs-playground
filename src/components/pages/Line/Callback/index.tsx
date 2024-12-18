@@ -1,39 +1,44 @@
-'use client';
+"use client";
 
-import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
-import type { FC } from 'react';
+import type { FC } from "react";
 
 export const Callback: FC = () => {
-  const searchParams = useSearchParams();
-  const [parsedParams, setParsedParams] = useState<{ key: string; value: string }[]>([]);
+	const searchParams = useSearchParams();
+	const [parsedParams, setParsedParams] = useState<
+		{ key: string; value: string }[]
+	>([]);
 
-  useEffect(() => {
-    if (searchParams === undefined) {
-      return;
-    }
+	useEffect(() => {
+		if (searchParams === undefined) {
+			return;
+		}
 
-    const paramsArray = Array.from(searchParams.entries());
+		const paramsArray = Array.from(searchParams.entries());
 
-    for (const entry of paramsArray) {
-      console.log(entry);
-      setParsedParams((prev) => {
-        const newValue = prev.concat();
-        newValue.push({ key: entry[0], value: entry[1] });
-        return newValue;
-      });
-    }
-  }, [searchParams]);
+		for (const entry of paramsArray) {
+			console.log(entry);
+			setParsedParams((prev) => {
+				const newValue = prev.concat();
+				newValue.push({ key: entry[0], value: entry[1] });
+				return newValue;
+			});
+		}
+	}, [searchParams]);
 
-  return (
-    <div className='p-12'>
-      <h1>line callback</h1>
-      <ul className='flex flex-col w-full gap-4'>
-        {parsedParams.map((param) => (
-          <li className='break-all' key={param.key}>{`${param.key}: ${param.value}`}</li>
-        ))}
-      </ul>
-    </div>
-  );
+	return (
+		<div className="p-12">
+			<h1>line callback</h1>
+			<ul className="flex flex-col w-full gap-4">
+				{parsedParams.map((param) => (
+					<li
+						className="break-all"
+						key={param.key}
+					>{`${param.key}: ${param.value}`}</li>
+				))}
+			</ul>
+		</div>
+	);
 };
