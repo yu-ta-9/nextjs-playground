@@ -1,4 +1,4 @@
-import { Form } from "@/app/line/connect/_components/Form";
+import { Form } from "@/app/line/login/_components/Form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
