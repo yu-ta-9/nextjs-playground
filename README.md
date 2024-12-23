@@ -8,3 +8,8 @@ $ docker compose up
 $ pnpm db:push
 $ pnpm dev
 ```
+
+```
+# For webhook
+$ ngrok http http://localhost:3033
+```
